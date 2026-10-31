@@ -22,6 +22,8 @@ COPY server/ ./server/
 # Copy frontend build
 COPY --from=frontend /app/client/dist ./client/dist
 
+RUN ls -la /app/client/dist && test -f /app/client/dist/index.html
+
 EXPOSE 5000
 
 ENV NODE_ENV=production
